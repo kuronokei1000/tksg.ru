@@ -2,7 +2,7 @@
 AddEventHandler("search", "BeforeIndex", "BeforeIndexHandler");
 	function BeforeIndexHandler($arFields) {
 	$arrIblock = array(23);
-	  $arDelFields = array("DETAIL_TEXT", "PREVIEW_TEXT") ;
+	  $arDelFields = array("DETAIL_TEXT", "PREVIEW_TEXT") ; // Удаляем из индексации детальный текст и анонс
 	  if (CModule::IncludeModule('iblock') && $arFields["MODULE_ID"] == 'iblock' && in_array($arFields["PARAM2"], $arrIblock) && intval($arFields["ITEM_ID"]) > 0){
 	  $dbElement = CIblockElement::GetByID($arFields["ITEM_ID"]) ;
 	  if ($arElement = $dbElement->Fetch()){
